@@ -1,11 +1,697 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>yaorongke</title>
-</head>
-<body>
-    <h1>个人主页</h1>
-    <h1>Hello ~</h1>
-</body>
-</html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Samples</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="cb3bd2bc-b97c-42f0-bb11-c420d72d0ecb" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📄</span></div><h1 class="page-title">Samples</h1></header><div class="page-body"><h2 id="5edd8d6d-3c8c-4bdb-af61-1acd47ae3449" class="">Replacement :</h2><h3 id="3b9f2196-1d6e-4340-8b75-f5e6506bca41" class="">Sample 1</h3><p id="e1ec3c4a-b958-4cf0-8e26-774bf885002a" class=""><strong>Original text</strong> :    OR WHATEVER WAS THE PRESENT TASK</p><p id="209b8b63-9748-4b43-b737-ebbdea9e9419" class=""><strong>Replaced text :  </strong>OR WHATEVER WAS THE <mark class="highlight-red">CURRENT</mark> TASK </p><div id="e2af49d8-240b-4fc0-bb03-126c16bb1ff3" class="column-list"><div id="d2b0043a-24ee-48f1-90d9-d658be6686b1" style="width:20%" class="column"><p id="1199e347-2df4-444b-9cc7-806947bbcce2" class=""><strong><strong>original audio</strong></strong></p><figure id="ef472ccd-613c-4822-8193-10c3b75b375e"><div class="source"><a href="Samples%20cb3bd2bcb97c42f0bb11c420d72d0ecb/auntcretesemancipation_01_hill_0039.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ad08f362-a4bb-441e-8667-83d5bec38351/auntcretesemancipation_01_hill_0039.wav</a></div></figure></div><div id="2b34872a-0bac-4d34-838b-0c63f76fd54f" style="width:20%" class="column"><p id="97f53a2b-1512-4a9f-bb76-81b30f921fd9" class="">Baseline 1</p><figure id="17232c02-a22b-4e57-9a9a-3bf3c8362d1d"><div class="source"><a href="Samples%20cb3bd2bcb97c42f0bb11c420d72d0ecb/92_auntcretesemancipation_01_hill_0039.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/896e14f5-39fe-49f9-9b6b-3ec976713b4a/92_auntcretesemancipation_01_hill_0039.wav</a></div></figure></div><div id="c3545c54-47da-4183-80c3-5887ffbd03c6" style="width:20%" class="column"><p id="3db53c3a-5c44-438b-9d4e-ff80f42ae408" class="">Baseline 2</p><figure id="f7b13eb8-a1df-4615-8748-3bf6df7411d7"><div class="source"><a href="Samples%20cb3bd2bcb97c42f0bb11c420d72d0ecb/92_auntcretesemancipation_01_hill_0039%201.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e7ff063a-83ad-42e3-b312-0c0f206f1987/92_auntcretesemancipation_01_hill_0039.wav</a></div></figure></div><div id="040be088-67ce-498a-988d-fc582e8206e1" style="width:20%" class="column"><p id="e7544a03-207e-41a9-8408-2555670f74d6" class="">Baseline 3</p><figure id="f24d741f-2a92-43fd-8e04-b85aaecb307c"><div class="source"><a href="Samples%20cb3bd2bcb97c42f0bb11c420d72d0ecb/92_auntcretesemancipation_01_hill_0039%202.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b522c4e6-675e-4a1b-bdd3-7ff550be6b3e/92_auntcretesemancipation_01_hill_0039.wav</a></div></figure></div><div id="f2f706e3-1be0-4ff8-9a29-623a18760934" style="width:20.00000000000001%" class="column"><p id="b5d63ebb-1689-44eb-8fc9-4411fd20ce4a" class="">BEdit-TTS</p><figure id="fe236593-70a9-4ad0-bc2d-2d7e461e6208"><div class="source"><a href="Samples%20cb3bd2bcb97c42f0bb11c420d72d0ecb/92_auntcretesemancipation_01_hill_0039%203.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8797d1e6-dd34-47f8-b5a5-7deae5c08a41/92_auntcretesemancipation_01_hill_0039.wav</a></div></figure></div></div><p id="577862f8-4bdb-465d-ab7b-18a84247c7d0" class="">
+</p><h3 id="ea0d58e4-b999-4771-b720-cfda3245bd2d" class="">Sample 2</h3><p id="459b8432-ea3e-44a4-a912-359dcffbba4d" class=""><strong>Original text</strong> :     MANY OTHERS HAVE ALREADY GONE BROKE</p><p id="7a7e111a-249e-4cef-a5dd-5a3896b88d5f" class=""><strong>Replaced text :  </strong><mark class="highlight-red">SOME</mark> OTHERS HAVE ALREADY GONE BROKE</p><div id="977630f7-72c5-46cd-83e8-ce56916ee3c7" class="column-list"><div id="7498fb66-7ac2-4517-b217-699854952ca7" style="width:20%" class="column"><p id="dfb2a22b-036b-463d-a075-3ff21b5cf1b4" class=""><strong><strong>original audio</strong></strong></p><figure id="89389245-fdae-4d58-aaca-a39bbf2512dd"><div class="source"><a href="Samples%20cb3bd2bcb97c42f0bb11c420d72d0ecb/astounding_stories06_09_cummings_0058.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a894cff4-5d72-49e3-8407-0cbbd20be1e4/astounding_stories06_09_cummings_0058.wav</a></div></figure></div><div id="4abae10e-e32f-418b-8286-550eb8b453c9" style="width:20%" class="column"><p id="36fad451-8b1f-46aa-a2a2-447b00b53863" class="">Baseline 1</p><figure id="17c34234-0d70-42b4-a262-c3528d4ee236"><div class="source"><a href="Samples%20cb3bd2bcb97c42f0bb11c420d72d0ecb/6670_astounding_stories06_09_cummings_0058.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/86e445b4-683b-4329-b442-5630d65ce029/6670_astounding_stories06_09_cummings_0058.wav</a></div></figure></div><div id="389de556-c2ac-4c95-8dd2-7bda7dd021af" style="width:20%" class="column"><p id="fa89d321-83cd-4632-9d6e-c3d94f8d018f" class="">Baseline 2</p><figure id="1b388cd7-f6a2-4d3b-b931-9ebf3689bddf"><div class="source"><a href="Samples%20cb3bd2bcb97c42f0bb11c420d72d0ecb/6670_astounding_stories06_09_cummings_0058%201.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3abbc8d0-6459-4dc3-b842-0d32b6e089f8/6670_astounding_stories06_09_cummings_0058.wav</a></div></figure></div><div id="42c3c04b-3dff-470d-9524-1c2eb5c167d5" style="width:20%" class="column"><p id="110dd258-a9fe-4f4d-9253-d41ee1e7022d" class="">Baseline 3</p><figure id="ac0a06f8-a647-4d98-a29e-b13dcc3af63b"><div class="source"><a href="Samples%20cb3bd2bcb97c42f0bb11c420d72d0ecb/6670_astounding_stories06_09_cummings_0058%202.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/88c44d5f-3b84-458c-a2f5-dbfcdad9ca01/6670_astounding_stories06_09_cummings_0058.wav</a></div></figure></div><div id="7d223872-d9c8-4118-a3dd-b5a80fd5f718" style="width:20.00000000000001%" class="column"><p id="825485b1-6969-48c4-86e0-afea5e0d0587" class="">BEdit-TTS</p><figure id="977eb575-1100-4987-b84a-8cdb4d851236"><div class="source"><a href="Samples%20cb3bd2bcb97c42f0bb11c420d72d0ecb/6670_astounding_stories06_09_cummings_0058%203.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3c523330-e1a8-45af-9e0a-570a75359b1f/6670_astounding_stories06_09_cummings_0058.wav</a></div></figure></div></div><p id="33f6680b-7340-487c-87f6-ba4ceaee0ed8" class="">
+</p><h3 id="54bd7d5f-ee52-4052-b610-164054857a8e" class="">Sample 3</h3><p id="5a1e08aa-2c1e-40a4-aa2f-5a99741d70d3" class=""><strong>Original text</strong> :     AND UPON THEM WERE SET SAILS PATTERNED AFTER THE WONDERFUL NEW INVENTION OF MASTER FLETCHER OF RYE</p><p id="ea1b857f-0050-41bf-b2f9-d14e51a34eb4" class=""><strong>Replaced text :   </strong>AND UPON THEM WERE SET SAILS PATTERNED AFTER THE WONDERFUL NEW INVENTION OF <mark class="highlight-red">INVENTOR</mark> FLETCHER OF RYE</p><div id="87f52120-0562-42f2-98de-187954e33124" class="column-list"><div id="f72ad9d1-b9fa-4d5f-94ca-34e7bbac1b40" style="width:20%" class="column"><p id="07d3ddcf-0818-4e44-833b-aa59b23fe57d" class=""><strong><strong>original audio</strong></strong></p><figure id="3fb42579-4910-4867-9b94-c010174586f2"><div class="source"><a href="Samples%20cb3bd2bcb97c42f0bb11c420d72d0ecb/astounding_stories06_09_cummings_0058.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a894cff4-5d72-49e3-8407-0cbbd20be1e4/astounding_stories06_09_cummings_0058.wav</a></div></figure><figure id="2761da33-76ed-403a-818e-0ea666be7941"><div class="source"><a href="Samples%20cb3bd2bcb97c42f0bb11c420d72d0ecb/insearchofmademoiselle_02_gibbs_0019.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f4abb789-e776-4ce1-9414-b86728fa6f55/insearchofmademoiselle_02_gibbs_0019.wav</a></div></figure></div><div id="e6bf995c-3d83-4489-8045-0be37a21d8b8" style="width:20%" class="column"><p id="adcecd32-e456-4cf5-8e00-81ff20366eb4" class="">Baseline 1</p><figure id="54559fb4-6f5f-4f31-9d4e-3c7018599452"><div class="source"><a href="Samples%20cb3bd2bcb97c42f0bb11c420d72d0ecb/6670_astounding_stories06_09_cummings_0058.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/86e445b4-683b-4329-b442-5630d65ce029/6670_astounding_stories06_09_cummings_0058.wav</a></div></figure><figure id="07ff77f8-af3d-4c28-8252-da96e09ec88e"><div class="source"><a href="Samples%20cb3bd2bcb97c42f0bb11c420d72d0ecb/6671_insearchofmademoiselle_02_gibbs_0019.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3384abc9-ebd3-4dca-b350-eb1cdf745460/6671_insearchofmademoiselle_02_gibbs_0019.wav</a></div></figure></div><div id="b6cdfa3f-3031-4641-80f2-2361d04a7563" style="width:20%" class="column"><p id="8baab031-e4fe-403a-8645-a68a583fcfba" class="">Baseline 2</p><figure id="69dfcc45-0cc1-422f-9a28-a6f9490873d0"><div class="source"><a href="Samples%20cb3bd2bcb97c42f0bb11c420d72d0ecb/6670_astounding_stories06_09_cummings_0058%201.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3abbc8d0-6459-4dc3-b842-0d32b6e089f8/6670_astounding_stories06_09_cummings_0058.wav</a></div></figure><figure id="ccd5e500-5271-44fc-bb06-5a613b73987c"><div class="source"><a href="Samples%20cb3bd2bcb97c42f0bb11c420d72d0ecb/6671_insearchofmademoiselle_02_gibbs_0019%201.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/dc471f7b-8929-425e-bd31-4c4606e4915e/6671_insearchofmademoiselle_02_gibbs_0019.wav</a></div></figure></div><div id="67d241f0-cbba-47ae-9d63-08cbef7223c8" style="width:20%" class="column"><p id="7e79ff22-f71a-48a6-bbb9-49ba200e9ae8" class="">Baseline 3</p><figure id="c9b9301c-3912-419b-86d9-b257590ec278"><div class="source"><a href="Samples%20cb3bd2bcb97c42f0bb11c420d72d0ecb/6670_astounding_stories06_09_cummings_0058%202.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/88c44d5f-3b84-458c-a2f5-dbfcdad9ca01/6670_astounding_stories06_09_cummings_0058.wav</a></div></figure><figure id="169cf33b-705a-4125-9dad-f61ee2f4dc6b"><div class="source"><a href="Samples%20cb3bd2bcb97c42f0bb11c420d72d0ecb/6671_insearchofmademoiselle_02_gibbs_0019%202.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a975d1cd-cecf-4669-ac9b-c3bd260bfdb6/6671_insearchofmademoiselle_02_gibbs_0019.wav</a></div></figure></div><div id="f8d27f2c-22b7-44c0-bd2c-94c437e50852" style="width:20.00000000000001%" class="column"><p id="db5c0c06-4b3d-44f5-ad4f-7e106d0bee5e" class="">BEdit-TTS</p><figure id="2164da14-c847-47d1-b546-cf91e1dff73e"><div class="source"><a href="Samples%20cb3bd2bcb97c42f0bb11c420d72d0ecb/6670_astounding_stories06_09_cummings_0058%203.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3c523330-e1a8-45af-9e0a-570a75359b1f/6670_astounding_stories06_09_cummings_0058.wav</a></div></figure><figure id="f61e98d8-aac7-42da-a787-bc5652ff8d06"><div class="source"><a href="Samples%20cb3bd2bcb97c42f0bb11c420d72d0ecb/6671_insearchofmademoiselle_02_gibbs_0019%203.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c87bce8d-20c8-4073-9ce1-9d6e73efbbf0/6671_insearchofmademoiselle_02_gibbs_0019.wav</a></div></figure></div></div><p id="12058099-883b-49cc-97da-8275204226f1" class="">
+</p><p id="6447bcef-e94d-4305-aa14-4e9581f99d7a" class="">
+</p><p id="fcd89f0d-e4a5-4cd6-a872-944a34c9b07a" class="">
+</p><ul id="9608fa2b-f99f-47ed-a62f-d2691d3b76c0" class="toggle"><li><details open=""><summary><code>6671_insearchofmademoiselle_02_gibbs_0019</code></summary><ul id="3483ecab-2c6e-43f4-a2b1-69418aa067b9" class="toggle"><li><details open=""><summary><strong>Real Speech - </strong>AND UPON THEM WERE SET SAILS PATTERNED AFTER THE WONDERFUL NEW INVENTION OF <mark class="highlight-red">MASTER</mark> FLETCHER OF RYE</summary><div id="a30c66a3-930b-42af-a6d6-c0c8d9434e27" class="column-list"><div id="0a749ba4-782a-4d38-bdda-4a68b7ab3c38" style="width:43.75%" class="column"><pre id="7dc9d12f-e236-4dd4-b245-952e94820f46" class="code"><code>Word:     master
+Phoneme:  M AE1 S T ER0</code></pre></div><div id="73e6cecf-d809-420c-baa0-c3ca2dfe37a1" style="width:56.24999999999998%" class="column"><p id="4ce76870-1fc2-4479-a57f-ff0131bac5a7" class="">
+</p></div></div></details></li></ul><ul id="3bd9ed5c-1cf6-4f85-9330-79f59059f7ae" class="toggle"><li><details open=""><summary><strong>Replaced speech - </strong>AND UPON THEM WERE SET SAILS PATTERNED AFTER THE WONDERFUL NEW INVENTION OF <mark class="highlight-red">INVENTOR</mark> FLETCHER OF RYE</summary><div id="f99d34e7-ebad-4f0a-8723-379a60a4a453" class="column-list"><div id="963afc85-7f3d-482a-9de1-174cbf36a007" style="width:43.75%" class="column"><pre id="7758ce8c-8282-477b-aba4-9b013aab1ceb" class="code"><code>Word:   inventor
+Phoneme:IH0 N V EH1 N T ER0</code></pre><p id="10402db4-707e-402f-8f90-a928eed2fa9e" class="">Baseline 1</p><p id="42f7d23c-3c57-4467-b74c-d47be7d496b5" class="">Baseline 2</p><p id="b6d95b56-995e-4546-94ca-5940ac0152b9" class="">Baseline 3</p><p id="a1a8160d-f7a5-4679-abd0-ac80881dec7c" class="">BEdit-TTS</p></div><div id="146eba3d-c3be-431c-96d1-cc9963d074b0" style="width:56.24999999999998%" class="column"><p id="e8ec834e-4706-4ade-bfcc-2d287e8ee719" class="">
+</p></div></div></details></li></ul><ul id="4797af99-2c66-424b-b23e-6f21789fb979" class="toggle"><li><details open=""><summary><strong>Inserted speech </strong>- AND UPON THEM WERE SET SAILS PATTERNED AFTER THE WONDERFUL NEW INVENTION OF <mark class="highlight-red">GREAT</mark> MASTER FLETCHER OF RYE</summary><pre id="0f939285-2e08-44f7-b4cd-cfe4dd0b16da" class="code"><code>Word:     great 
+Phoneme:  G R EY1 T</code></pre><p id="42f6975f-14a4-439a-b939-a7d78c68d421" class="">Baseline 1</p><figure id="cd981e1f-eba8-4108-a515-0fb29520ebf3"><div class="source"><a href="Samples%20cb3bd2bcb97c42f0bb11c420d72d0ecb/6671_insearchofmademoiselle_02_gibbs_0019%204.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0f57a5ec-7125-4459-a68d-09ad8e77f41e/6671_insearchofmademoiselle_02_gibbs_0019.wav</a></div></figure><p id="8a792e02-7cc7-405d-9f8a-6f13813c21ff" class="">Baseline 2</p><figure id="e2c8b325-5afd-44fe-9d78-03f88b56bb53"><div class="source"><a href="Samples%20cb3bd2bcb97c42f0bb11c420d72d0ecb/6671_insearchofmademoiselle_02_gibbs_0019%205.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/90c7f374-c2c8-4091-b3bc-af88a56965ce/6671_insearchofmademoiselle_02_gibbs_0019.wav</a></div></figure><p id="b3b986a6-2a6d-4510-b703-fa981985f7db" class="">Baseline 3</p><figure id="ad625942-abb9-4353-ae67-67ca19999316"><div class="source"><a href="Samples%20cb3bd2bcb97c42f0bb11c420d72d0ecb/6671_insearchofmademoiselle_02_gibbs_0019%206.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/fbab3d77-5cc3-4763-9644-4bd68842a901/6671_insearchofmademoiselle_02_gibbs_0019.wav</a></div></figure><p id="591e28fc-46e9-445b-a46c-8c10883c61dd" class="">BEdit-TTS</p><figure id="94c0c50a-8a86-485f-a303-6ff38e3d0599"><div class="source"><a href="Samples%20cb3bd2bcb97c42f0bb11c420d72d0ecb/6671_insearchofmademoiselle_02_gibbs_0019%207.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a5e65084-ea0e-43c5-9fef-2866c485c53a/6671_insearchofmademoiselle_02_gibbs_0019.wav</a></div></figure></details></li></ul></details></li></ul><p id="58b94f10-6e32-4908-bbbd-2e780de9ddb6" class="">
+</p><p id="0cf60b0e-a8ce-4809-a40b-4f3189707644" class="">
+</p><ul id="36ff1ef4-a982-45c7-b8b5-7d56533cb157" class="toggle"><li><details open=""><summary><code>6670_astounding_stories06_09_cummings_0058</code></summary><ul id="12c15543-d64e-4eb8-9a33-02c838c61343" class="toggle"><li><details open=""><summary><strong>Real Speech - </strong><mark class="highlight-red">MANY</mark> OTHERS HAVE ALREADY GONE BROKE</summary><div id="1346a9be-f148-4576-a00f-b1d551c9db56" class="column-list"><div id="6225ad82-4f4b-46af-8271-79dcbfa46ac4" style="width:43.75%" class="column"><pre id="70d6a8f3-ee08-45f9-8d8b-be8a2a44622c" class="code"><code>Word:     many
+Phoneme:  M EH1 N IY0</code></pre></div><div id="df743965-aff7-4e97-ad3c-79249de39ed0" style="width:56.24999999999998%" class="column"><p id="dd93678f-b7ec-43ec-875a-76bb40c77f2c" class="">
+</p></div></div></details></li></ul><ul id="3e781496-3e92-4bba-818b-7dd803a40c68" class="toggle"><li><details open=""><summary><strong>Replaced speech - </strong>“<mark class="highlight-red">SOME</mark> OTHERS HAVE ALREADY GONE BROKE”</summary><div id="3d0adc1f-4a9f-4c34-9fc6-6e5f42c44e73" class="column-list"><div id="af974bf6-ad44-4f08-b4b0-8ee014547a67" style="width:43.75%" class="column"><pre id="da4e8171-62dd-4a7f-a439-ee0111a6018d" class="code"><code>Word:     some
+Phoneme:  S AH1 M</code></pre><p id="c8120c26-1b78-4625-9839-22a7c144148b" class="">Baseline 1</p><p id="2beee036-a34d-4a3e-a75a-5a32bacc837d" class="">Baseline 2</p><p id="0ebc07e6-8c3a-4d3b-a735-fd85341c990b" class="">Baseline 3</p><p id="c7205199-f846-473c-8d3a-ca4990dbe56b" class="">BEdit-TTS</p></div><div id="a0ffe901-1767-4bb8-9443-6d1d378dcfb2" style="width:56.24999999999998%" class="column"><p id="327029d5-67d3-4796-b755-8ebb4bc79f80" class="">
+</p></div></div></details></li></ul><ul id="a2d88124-c0a0-4fac-902d-6889ad0330df" class="toggle"><li><details open=""><summary><strong>Inserted speech </strong>- <mark class="highlight-red">THERE&#x27;RE</mark> MANY OTHERS HAVE ALREADY GONE BROKE</summary><pre id="c3fce811-5e04-4246-affc-6dbb10ed13d4" class="code"><code>Word:     THERE&#x27;RE
+Phoneme:  DH EH1 R ER0</code></pre><p id="a856d500-c2c8-4ee4-9de1-4054f8a59d4a" class="">Baseline 1</p><figure id="3ff008cc-5731-4ebb-a863-92cfb76862f9"><div class="source"><a href="Samples%20cb3bd2bcb97c42f0bb11c420d72d0ecb/6670_astounding_stories06_09_cummings_0058%204.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/eb6541e4-21fd-4b62-9a99-6c29a9ba7486/6670_astounding_stories06_09_cummings_0058.wav</a></div></figure><p id="0aec3e32-fd79-41e6-97b8-83552b56fa28" class="">Baseline 2</p><figure id="7e1c43fe-03fb-4957-98c4-7cbafbbdbf8c"><div class="source"><a href="Samples%20cb3bd2bcb97c42f0bb11c420d72d0ecb/6670_astounding_stories06_09_cummings_0058%205.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4804659a-99d9-4761-818b-75cf9dfc8049/6670_astounding_stories06_09_cummings_0058.wav</a></div></figure><p id="9a3b9667-7adb-4799-93c6-a86362776075" class="">Baseline 3</p><figure id="8af5dad0-d534-4764-83a9-7e982c6bba40"><div class="source"><a href="Samples%20cb3bd2bcb97c42f0bb11c420d72d0ecb/6670_astounding_stories06_09_cummings_0058%206.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cec420da-b5e9-43c7-aff7-3ca119209209/6670_astounding_stories06_09_cummings_0058.wav</a></div></figure><p id="15f1aa02-3abc-4ec9-af7c-2de48e5d8b29" class="">BEdit-TTS</p><figure id="b7906b37-4da8-4436-b010-2a69be2691e7"><div class="source"><a href="Samples%20cb3bd2bcb97c42f0bb11c420d72d0ecb/6670_astounding_stories06_09_cummings_0058%207.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e3df33fb-b5e9-48d1-9839-62926a1e877c/6670_astounding_stories06_09_cummings_0058.wav</a></div></figure></details></li></ul></details></li></ul><ul id="25e81e64-b270-403f-8346-549100c17dfb" class="toggle"><li><details open=""><summary><code>92_auntcretesemancipation_01_hill_0039</code></summary><ul id="a1ca453f-c0db-450e-9384-6ae100626801" class="toggle"><li><details open=""><summary><strong>Real Speech - ”</strong>OR WHATEVER WAS THE <mark class="highlight-red">PRESENT</mark> TASK<strong>”</strong></summary><div id="5bfe4d0b-7611-4634-9cbf-72ff9c04275e" class="column-list"><div id="fa781338-aaa7-4e9b-94eb-090f77b60514" style="width:43.75%" class="column"><p id="3b6c33e1-f16e-4891-84ff-9a2f42636b90" class="">
+</p><p id="42d34bc4-5e76-4643-a708-d9a9208c7570" class="">
+</p></div><div id="ecde2650-8814-4691-97f1-58c3fd0be14d" style="width:56.24999999999998%" class="column"><p id="85769cbe-c754-4a37-a91d-f2bef2f326a5" class="">
+</p></div></div></details></li></ul><ul id="2a969d36-e2c8-406a-bf53-12800c3a39a6" class="toggle"><li><details open=""><summary><strong>Replaced speech - “</strong>OR WHATEVER WAS THE <mark class="highlight-red">CURRENT</mark> TASK<strong>”</strong></summary><div id="b74a82c5-2832-404f-9389-93860b1918c8" class="column-list"><div id="4dcec038-e6a5-41cc-bdb0-a317c850097e" style="width:43.75%" class="column"><pre id="da4278d4-dafd-4d30-ae73-57877a47aa1c" class="code"><code>Word:     current
+Phoneme:  K AA1 R AH0 N T</code></pre><p id="922ecae4-eed8-4341-bf6f-c3b67d51c0cc" class="">Baseline 1</p><p id="4499b779-ffd9-4b97-a5dc-d2f1b3b46343" class="">Baseline 2</p><p id="e7c37c43-b215-45e6-bc08-d35ed6c89add" class="">Baseline 3</p><p id="5cdb3817-5095-4b20-ab4f-99d0405d6d40" class="">BEdit-TTS</p><p id="cd55b18f-84f3-4cb0-a3dc-ef4912925546" class="">
+</p></div><div id="e7d1598d-8622-4216-9acf-ce71b07c677c" style="width:56.24999999999998%" class="column"><p id="35e160d9-eae9-4a80-ba8a-3f8f9c65faf0" class="">
+</p></div></div></details></li></ul><ul id="cda11ab5-ad8a-42d1-9baf-faa865bd8db4" class="toggle"><li><details open=""><summary><strong>Inserted speech </strong>- OR WHATEVER WAS THE <mark class="highlight-red">NEW </mark>PRESENT TASK</summary><pre id="e1a23d08-270b-44a9-a3df-4a55a558d952" class="code"><code>Word:     NEW
+Phoneme:  N UW1   </code></pre><p id="5e7755a9-3ffa-4a8d-97de-eca53d407ea2" class="">Baseline 1</p><figure id="cd86a58f-9166-444b-9663-0ade3eb2ccaa"><div class="source"><a href="Samples%20cb3bd2bcb97c42f0bb11c420d72d0ecb/92_auntcretesemancipation_01_hill_0039%204.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/58e3fb62-f133-4d01-9a54-ab905f0cc4ee/92_auntcretesemancipation_01_hill_0039.wav</a></div></figure><p id="b3c7cb8f-45d3-4061-93c9-4f623705b3ca" class="">Baseline 2</p><figure id="3a3da110-d4d4-46aa-b5db-e3e9bd776814"><div class="source"><a href="Samples%20cb3bd2bcb97c42f0bb11c420d72d0ecb/92_auntcretesemancipation_01_hill_0039%205.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/165961d2-2160-49e5-acce-04d54feaea7c/92_auntcretesemancipation_01_hill_0039.wav</a></div></figure><p id="656ccd50-5b86-41d2-9e64-6287c3c1b512" class="">Baseline 3</p><figure id="953aeacc-9e3b-47de-935e-e0e85c878661"><div class="source"><a href="Samples%20cb3bd2bcb97c42f0bb11c420d72d0ecb/92_auntcretesemancipation_01_hill_0039%206.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b7265e5d-99a5-49f0-a5d4-c2584e0e54f2/92_auntcretesemancipation_01_hill_0039.wav</a></div></figure><p id="bf7fdd21-0851-47b1-9acd-88b21c9887d4" class="">BEdit-TTS</p><figure id="89d8689d-d3c5-4e04-97ca-b5fd823ef344"><div class="source"><a href="Samples%20cb3bd2bcb97c42f0bb11c420d72d0ecb/92_auntcretesemancipation_01_hill_0039%207.wav">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f630991e-0c64-442f-9e5a-ef0168b0ee39/92_auntcretesemancipation_01_hill_0039.wav</a></div></figure></details></li></ul></details></li></ul><p id="adc5ade6-85c2-41af-8f5b-730c8c241b97" class="">
+</p><p id="a29f204c-97ec-4491-a319-1b0eda0841d9" class="">
+</p><p id="36d1aeac-d6d7-4830-9bf3-8b4f81fda241" class="">
+</p><p id="ff761bc8-9699-4de2-b9a5-088602266abb" class="">
+</p></div></article></body></html>
