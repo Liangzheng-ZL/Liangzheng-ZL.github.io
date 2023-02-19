@@ -11,7 +11,7 @@ var TestConfig = {
   "EnableABLoop": true,
   "EnableOnlineSubmission": true,
   "BeaqleServiceURL": "/web_service/beaqleJS_Service.php",
-  "SupervisorContact": "zhijunliu@sjtu.edu.cn",
+  "SupervisorContact": "liangzhenglz@sjtu.edu.cn",
   "RandomizeTestOrder": true,
   "MaxTestsPerRun": 3,
   "RequireMaxRating": false,
