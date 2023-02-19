@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+
+    <title>听音测试</title>
+</head>
+
+<body>
+    <div class="container-sm">
+        <br/>
+        感谢您参加此次听音测试。本次听音测试的目的是测试文本转语音模型的合成质量。
+        <br/>
+        说明：
+        <ul>
+            <li>请确保您使用较高质量的耳机设备，且处于较安静的环境中。</li>
+            <li>如您需要中途离开，只需保持页面打开即可。另外，每个子测试结束后都可以提交结果。</li>
+            <li>每个测试页面下方都有一个滑块，可以用来改变播放的范围。</li>
+            <li>请仔细为每个音频打分，您的提交结果对我们很重要。</li>
+            <li>如您遇到播放音频上的问题，请尝试切换浏览器。</li>
+        </ul>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">测试内容</th>
+                <th scope="col">预计消耗时间</th>
+                <th scope="col">链接</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>单说话人合成质量</td>
+                <td>每次测试随机抽取 3 组句子，< 6 分钟</td>
+                <td>
+                    <a href="./ljspeech_mos.html">进入测试</a>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>多说话人合成质量</td>
+                <td>每次测试随机抽取 3 组句子，< 6 分钟</td>
+                <td>
+                    <a href="./libritts_mos.html">进入测试</a>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>多说话人合成相似度</td>
+                <td>每次测试随机抽取 3 组句子，< 8 分钟</td>
+                <td>
+                    <a href="./libritts_sim.html">进入测试</a>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td>语音克隆合成质量</td>
+                <td>每次测试随机抽取 3 组句子，< 8 分钟</td>
+                <td>
+                    <a href="./zeroshot_mos.html">进入测试</a>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">5</th>
+                <td>语音克隆相似度</td>
+                <td>每次测试随机抽取 3 组句子，< 8 分钟</td>
+                <td>
+                    <a href="./zeroshot_sim.html">进入测试</a>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">6</th>
+                <td>语音补全自然度</td>
+                <td>每次测试随机抽取 6 组句子，< 5 分钟</td>
+                <td>
+                    <a href="./edit_mos.html">进入测试</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>
